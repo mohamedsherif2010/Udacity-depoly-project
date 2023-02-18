@@ -10,7 +10,7 @@ jobs:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
-    working_directory: /www
+   # working_directory: /www
     steps:
       # install node and checkout code
       - node/install:
@@ -45,9 +45,9 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-      - store_artifacts:
-        path: /www
-        destination: Archive.zip
+    #  - store_artifacts:
+      #  path: /www
+       # destination: Archive.zip
   # deploy steps
   deploy:
     docker:
