@@ -5,6 +5,13 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
+  workflows:
+  build and deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
 jobs:
   build:
     docker:
@@ -64,11 +71,3 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             npm run deploy
-            
-workflows:
-  udagram:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
