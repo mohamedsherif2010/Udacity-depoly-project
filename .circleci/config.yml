@@ -53,7 +53,7 @@ jobs:
        # destination: Archive.zip
   # deploy steps
   deploy:
-    steps:
+    # steps:
       - run:
           name: Deploy App
           command: |
@@ -63,9 +63,9 @@ workflows:
   udagram:
       jobs:
         - build
-        - deploy:
-          requires:
-             - build
+        - deploy
+          # requires:
+          #    - build
 
 
 # workflows:
