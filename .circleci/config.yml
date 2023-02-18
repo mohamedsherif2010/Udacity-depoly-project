@@ -8,9 +8,9 @@ orbs:
   workflows:
   build-and-deploy:
     jobs:
-      - build_deploy
+      - build
 jobs:
-  build_deploy:
+  build:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
