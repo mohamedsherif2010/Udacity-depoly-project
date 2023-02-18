@@ -53,7 +53,7 @@ jobs:
        # destination: Archive.zip
   # deploy steps
   deploy:
-    # steps:
+     steps:
       - run:
           name: Deploy App
           command: |
