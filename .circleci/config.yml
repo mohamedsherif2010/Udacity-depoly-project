@@ -10,7 +10,7 @@ orbs:
     jobs:
       - build_deploy
 jobs:
-  build_deploy
+  build_deploy:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
