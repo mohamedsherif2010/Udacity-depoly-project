@@ -6,14 +6,11 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
   workflows:
-  build and deploy:
+  build-and-deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - build_deploy
 jobs:
-  build:
+  build_deploy
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
