@@ -72,7 +72,7 @@ workflows:
         #   only: 
         #     - main
       - backend:
-        # filters:
-          branches:
-            only:
-              - main
+          filters:
+            branches:
+              only:
+                - main
