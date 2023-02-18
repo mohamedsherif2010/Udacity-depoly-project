@@ -58,9 +58,9 @@ jobs:
             npm run backend:deploy
 
 workflows:
-  Branches:
-      only: 
-        - main
+  # Branches:
+  #     only: 
+  #       - main
   udagram:
     jobs:
       - frontend
@@ -68,6 +68,7 @@ workflows:
         #   only: 
         #     - main
       - backend
-        # branches:
-          # only: 
-          #   - main
+        filters:
+          branches:
+            only:
+              - main
