@@ -8,7 +8,7 @@ This application is provided to you as an alternative starter project if you do 
 
 ### Dependencies
 
-A list of project dependencies can be found here.
+A list of project dependencies can be found [Here](https://github.com/mohamedsherif2010/Udacity-depoly-project/blob/master/Documentation/Dependencies.md)
 
 ### Installation
 
