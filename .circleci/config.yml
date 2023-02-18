@@ -56,8 +56,8 @@ jobs:
     # steps:
       - run:
           name: Deploy App
-          command: |
-            npm run deploy
+            command: |
+              npm run deploy
 
 workflows:
   udagram:
