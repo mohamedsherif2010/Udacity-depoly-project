@@ -12,5 +12,6 @@ server is running on EBS.
 Backend url : [Here](http://udagram-api-dev.us-east-1.elasticbeanstalk.com/)
 
 #### S3
-front end is uploaded on S3 for static web hosting,
+front end is uploaded on S3 for static web hosting.
+
 Frontend url : [Here](http://mybucket023023025.s3-website-us-east-1.amazonaws.com/)
