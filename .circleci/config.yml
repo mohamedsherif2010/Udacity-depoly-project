@@ -63,7 +63,7 @@ workflows:
   #       - main
   udagram:
     jobs:
-      - frontend
+      - frontend:
           branches:
             only:
               - main
