@@ -9,7 +9,7 @@ workflows:
   udagram:
       jobs:
         - build
-          - deploy
+        - deploy
 jobs:
   build:
     docker:
@@ -57,6 +57,7 @@ jobs:
        # destination: Archive.zip
   # deploy steps
   deploy:
+    steps:
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
