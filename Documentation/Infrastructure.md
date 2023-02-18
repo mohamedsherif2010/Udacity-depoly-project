@@ -1,6 +1,6 @@
 ## Udagram Infrastructure
 
-![Architecture flow](architectureDiagram.png)
+![Architecture flow](https://github.com/mohamedsherif2010/Udacity-depoly-project/blob/master/Documentation/Infrastructure.png)
 
 # AWS
 #### RDS database

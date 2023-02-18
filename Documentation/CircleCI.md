@@ -1,6 +1,6 @@
 # Udagram CircleCI CI/CD
 
-
+![Architecture flow](https://github.com/mohamedsherif2010/Udacity-depoly-project/blob/master/Documentation/pipeline%20process.png)
 
 
 
