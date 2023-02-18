@@ -7,9 +7,9 @@ orbs:
   # different jobs are calles later in the workflows sections
 workflows:
   udagram:
-    jobs:
-      - build
-      - deploy
+      jobs:
+        - build
+          - deploy
 jobs:
   build:
     docker:
