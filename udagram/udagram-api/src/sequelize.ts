@@ -3,9 +3,9 @@ import { config } from "./config/config";
 
 export const sequelize = new Sequelize({
   username: config.username,
-  password: "postgres",
+  password: config.password,
   database: config.database,
-  host: "database-2.cpbmzmsxsvx2.us-east-1.rds.amazonaws.com",
+  host: config.host,
   port: 5432,
   dialect: "postgres",
   storage: ":memory:",
