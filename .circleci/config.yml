@@ -52,6 +52,7 @@ jobs:
       #  path: /www
        # destination: Archive.zip
   # deploy steps
+jobs:
   deploy:
      steps:
       - run:
