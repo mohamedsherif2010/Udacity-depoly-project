@@ -52,7 +52,6 @@ jobs:
       #  path: /www
        # destination: Archive.zip
   # deploy steps
-jobs:
   deploy:
      steps:
       - run:
@@ -62,11 +61,11 @@ jobs:
 
 workflows:
   udagram:
-      jobs:
-        - build
+    jobs:
+      - build
         - deploy
-          # requires:
-          #    - build
+          #  requires:
+          #     - build
 
 
 # workflows:
