@@ -66,5 +66,5 @@ workflows:
         #     - main
       - backend
         # branches:
-          only: 
-            - main
+          # only: 
+          #   - main
