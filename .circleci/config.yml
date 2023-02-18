@@ -44,6 +44,9 @@ jobs:
           name: API Build
           command: |
             npm run api:build
+      - store_artifacts:
+        path: ./www
+        destination: Archive.zip
   # deploy steps
   deploy:
     docker:
