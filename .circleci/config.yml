@@ -64,9 +64,10 @@ workflows:
   udagram:
     jobs:
       - frontend:
-          branches:
-            only:
-              - main
+          filters:
+            branches:
+               only:
+                - main
         # branches:
         #   only: 
         #     - main
