@@ -46,7 +46,7 @@ jobs:
           command: |
             npm run api:build
       - store_artifacts:
-        path: ./www
+        path: /www
         destination: Archive.zip
   # deploy steps
   deploy:
