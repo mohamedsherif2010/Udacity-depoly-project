@@ -5,69 +5,115 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
-  workflows:
-  build and deploy:
+  # workflows:
+  # build and deploy:
+  #   jobs:
+  #     - build
+  #     - deploy:
+  #         requires:
+  #           - build
+# jobs:
+#   build:
+#     docker:
+#       # the base image can run most needed actions with orbs
+#       - image: "cimg/node:14.15"
+#    # working_directory: /www
+#     steps:
+#       # install node and checkout code
+#       - node/install:
+#           node-version: '14.15'  
+#       - checkout       
+#       # Use root level package.json to install dependencies in the frontend app
+#       - run:
+#           name: Install Front-End Dependencies
+#           command: |
+#             echo "NODE --version" 
+#             echo $(node --version)
+#             echo "NPM --version" 
+#             echo $(npm --version)
+#             npm run frontend:install
+#           # TODO: Lint the frontend
+#       - run:
+#           name: Front-End Lint
+#           command: |
+#             npm run frontend:lint
+#       # TODO: Build the frontend app
+#       - run:
+#           name: Front-End Build
+#           command: |
+#             npm run frontend:build
+#       # TODO: Install dependencies in the the backend API          
+#       - run:
+#           name: Install API Dependencies
+#           command: |
+#            npm run api:install
+#       # TODO: Build the backend API      
+#       - run:
+#           name: API Build
+#           command: |
+#             npm run api:build
+#     #  - store_artifacts:
+#       #  path: /www
+#        # destination: Archive.zip
+#   # deploy steps
+#   deploy:
+#     docker:
+#       - image: "cimg/base:stable"
+#       # more setup needed for aws, node, elastic beanstalk
+#     steps:
+#       - node/install:
+#           node-version: '14.15' 
+#       - eb/setup
+#       - aws-cli/setup
+#       - checkout
+#       - run:
+#           name: Deploy App
+#           # TODO: Install, build, deploy in both apps
+#           command: |
+#             npm run deploy
+
+
+
+workflows:
+  version: 2
+  main:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - build:
+          filters:
+            branches:
+              only: master
+
 jobs:
   build:
     docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/node:14.15"
-   # working_directory: /www
+      - image: "cimg/base:stable"
+    executor: node/default
     steps:
-      # install node and checkout code
-      - node/install:
-          node-version: '14.15'  
-      - checkout       
-      # Use root level package.json to install dependencies in the frontend app
+      - node/install
+      - checkout
+      - aws-cli/setup
+      - eb/setup
       - run:
-          name: Install Front-End Dependencies
+          name: Back-End Install
           command: |
-            echo "NODE --version" 
-            echo $(node --version)
-            echo "NPM --version" 
-            echo $(npm --version)
+            npm run backend:install
+      - run:
+          name: Back-End Build
+          command: |
+            npm run backend:build
+      - run:
+          name: Deploy API
+          command: |
+            npm run backend:deploy
+      - run:
+          name: Front-End Install
+          command: |
             npm run frontend:install
-          # TODO: Lint the frontend
-      - run:
-          name: Front-End Lint
-          command: |
-            npm run frontend:lint
-      # TODO: Build the frontend app
       - run:
           name: Front-End Build
           command: |
             npm run frontend:build
-      # TODO: Install dependencies in the the backend API          
-      - run:
-          name: Install API Dependencies
-          command: |
-           npm run api:install
-      # TODO: Build the backend API      
-      - run:
-          name: API Build
-          command: |
-            npm run api:build
-    #  - store_artifacts:
-      #  path: /www
-       # destination: Archive.zip
-  # deploy steps
-  deploy:
-    docker:
-      - image: "cimg/base:stable"
-      # more setup needed for aws, node, elastic beanstalk
-    steps:
-      - node/install:
-          node-version: '14.15' 
-      - eb/setup
-      - aws-cli/setup
-      - checkout
       - run:
           name: Deploy App
-          # TODO: Install, build, deploy in both apps
           command: |
-            npm run deploy
+            npm run frontend:deploy
