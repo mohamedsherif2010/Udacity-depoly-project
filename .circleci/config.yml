@@ -55,6 +55,7 @@ jobs:
       #  path: /www
        # destination: Archive.zip
   # deploy steps
+  deploy:
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
