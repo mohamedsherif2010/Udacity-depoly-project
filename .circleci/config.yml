@@ -90,7 +90,7 @@ workflows:
   udagram:
     jobs:
       - frontend
-      # - backend
+      - backend
           # requires:
           #   - build
 # "deploy": "npm run api:deploy && npm run frontend:deploy",
