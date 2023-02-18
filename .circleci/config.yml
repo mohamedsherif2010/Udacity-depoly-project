@@ -9,7 +9,7 @@ workflows:
   build:
     jobs:
       - build
-      -deploy
+      - deploy
 jobs:
   build:
     docker:
