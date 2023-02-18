@@ -9,4 +9,4 @@ The dependencies required to run the project are listed as follows:
 - EB CLI.
 - A RDS database running Postgres.
 - A S3 bucket for hosting frontend.
-- any other packages will be installed using npm install -f
+- any other packages will be installed using ```npm install -f```
