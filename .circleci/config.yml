@@ -62,7 +62,9 @@ workflows:
     jobs:
       - frontend
         branches:
-              only: main
+          only: 
+            - main
       - backend
         branches:
-              only: main
+          only: 
+            - main
