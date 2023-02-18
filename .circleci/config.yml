@@ -54,6 +54,7 @@ jobs:
   # deploy steps
   deploy:
      steps:
+      - checkout 
       - run:
           name: Deploy App
           command: |
@@ -63,7 +64,7 @@ workflows:
   udagram:
     jobs:
       - build
-        - deploy
+      - deploy
           #  requires:
           #     - build
 
