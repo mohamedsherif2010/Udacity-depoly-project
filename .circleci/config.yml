@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Deploy App
           command: |
-            npm run deploy-front
+            npm run forntend:deploy
   backend:
     docker:
       # the base image can run most needed actions with orbs
@@ -67,7 +67,7 @@ jobs:
       - run:
           name: Deploy App
           command: |
-            npm run deploy-back
+            npm run backend:deploy
     #  - store_artifacts:
       #  path: /www
        # destination: Archive.zip
